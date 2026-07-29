@@ -19,6 +19,27 @@ public abstract class Transacao
 
     protected Transacao(DateTime data, decimal valor, string descricao, StatusTransacao status, Guid contaId, Guid? recorrenciaId)
     {
-            
+        if (valor <= 0)
+        {
+            throw new ArgumentException("Valor não pode ser 0", nameof(valor));
+        }
+
+        if (string.IsNullOrWhiteSpace(descricao))
+        {
+            throw new ArgumentException("Nome é obrigatório", nameof(descricao));
+        }
+
+        if(contaId == Guid.Empty)
+        {
+            throw new ArgumentException("Id não pode ser vazio", nameof(contaId));
+        }
+
+        Id = Guid.NewGuid();
+        Data = data;
+        Valor = valor;
+        Descricao = descricao;
+        Status = status;
+        ContaId = contaId;
+        RecorrenciaId = recorrenciaId;
     }
 }
