@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Fincon.Application\Fincon.Application.csproj" />
+    <ProjectReference Include="..\Fincon.Domain\Fincon.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
