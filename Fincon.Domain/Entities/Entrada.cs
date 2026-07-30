@@ -16,7 +16,7 @@ public class Entrada : Transacao
     {
         if(categoriaEntradaId == Guid.Empty)
         {
-            throw new ArgumentException("Id não pode ser vazio", nameof(contaId));
+            throw new ArgumentException("Id não pode ser vazio", nameof(categoriaEntradaId));
         }
 
         CategoriaEntradaId = categoriaEntradaId;
