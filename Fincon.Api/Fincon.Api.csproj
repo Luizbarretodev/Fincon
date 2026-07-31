@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Fincon.Application\Fincon.Application.csproj" />
-    <ProjectReference Include="..\Fincon.Infraestucture\Fincon.Infraestucture.csproj" />
+    <ProjectReference Include="..\Fincon.Infraestucture\Fincon.Infrastucture.csproj" />
   </ItemGroup>
 
 </Project>
