@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fincon.Infrastucture.Context;
+namespace Fincon.Infrastructure.Context;
 
 public class AppDbContext : DbContext
 {
@@ -48,6 +48,7 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<Transacao>(entity =>
         {
+            entity.ToTable("Transacoes");
             entity.Property(t => t.Descricao)
                 .IsRequired()
                 .HasMaxLength(200);

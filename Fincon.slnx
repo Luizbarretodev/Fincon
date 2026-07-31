@@ -2,5 +2,5 @@
   <Project Path="Fincon.Api/Fincon.Api.csproj" Id="cf6874b2-3164-4424-a83c-c8693508286a" />
   <Project Path="Fincon.Application/Fincon.Application.csproj" Id="20b74d5d-bcab-4a50-9a7b-a0d721865f53" />
   <Project Path="Fincon.Domain/Fincon.Domain.csproj" />
-  <Project Path="Fincon.Infraestucture/Fincon.Infrastucture.csproj" Id="9a5f3cb3-a60c-4974-bb9e-6f45f480ab81" />
+  <Project Path="Fincon.Infraestucture/Fincon.Infrastructure.csproj" Id="9a5f3cb3-a60c-4974-bb9e-6f45f480ab81" />
 </Solution>
