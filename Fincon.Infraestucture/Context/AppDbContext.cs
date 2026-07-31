@@ -21,4 +21,54 @@ public class AppDbContext : DbContext
     public DbSet<Saida> Saidas { get; set; }
     public DbSet<Recorrencia> Recorrencias { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Conta>(entity =>
+        {
+            entity.Property(c => c.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<CategoriaEntrada>(entity =>
+        {
+            entity.Property(c => c.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<CategoriaSaida>(entity =>
+        {
+            entity.Property(c => c.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<Transacao>(entity =>
+        {
+            entity.Property(t => t.Descricao)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            entity.Property(t => t.Valor)
+                .HasPrecision(18, 2);
+
+            entity.HasDiscriminator<string>("TipoTransacao")
+                .HasValue<Entrada>("Entrada")
+                .HasValue<Saida>("Saida");
+        });
+
+        modelBuilder.Entity<Recorrencia>(entity =>
+        {
+            entity.Property(r => r.Descricao)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            entity.Property(r => r.ValorParcela)
+                .HasPrecision(18, 2);
+        });
+    }
+
 }
