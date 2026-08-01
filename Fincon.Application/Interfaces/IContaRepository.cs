@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fincon.Application;
+namespace Fincon.Application.Interfaces;
 
 public interface IContaRepository
 {
