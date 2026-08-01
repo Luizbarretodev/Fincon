@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Fincon.Application\Fincon.Application.csproj" />
     <ProjectReference Include="..\Fincon.Infraestucture\Fincon.Infrastructure.csproj" />
   </ItemGroup>
