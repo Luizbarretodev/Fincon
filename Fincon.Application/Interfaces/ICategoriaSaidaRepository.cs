@@ -9,5 +9,5 @@ namespace Fincon.Application.Interfaces;
 
 public interface ICategoriaSaidaRepository
 {
-    Task CriaSaidaAsync(CategoriaSaida saida);
+    Task CriaSaidaAsync(CategoriaSaida Saida);
 }

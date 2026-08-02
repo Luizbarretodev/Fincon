@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 namespace Fincon.Application.Interfaces;
 public interface ICategoriaEntradaRepository
 {
-    Task CriaEntradaAsync(CategoriaEntrada entrada);
+    Task CriaEntradaAsync(CategoriaEntrada Entrada);
 }
