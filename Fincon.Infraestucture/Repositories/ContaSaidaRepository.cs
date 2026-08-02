@@ -9,17 +9,18 @@ using System.Threading.Tasks;
 
 namespace Fincon.Infrastructure.Repositories;
 
-public class ContaRepository : IContaRepository
+public class CategoriaSaidaRepository : ICategoriaSaidaRepository
 {
     private readonly AppDbContext _context;
 
-    public ContaRepository(AppDbContext context)
+    public CategoriaSaidaRepository(AppDbContext context)
     {
         _context = context;
     }
-    public async Task CriaContaAsync(Conta conta)
+    public async Task CriaSaidaAsync(CategoriaSaida saida)
     {
-        _context.Add(conta);
+        _context.Add(saida);
+
         await _context.SaveChangesAsync();
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Fincon.Api.Models;
 using Fincon.Application.UseCases.Contas;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fincon.Api.Controllers;
