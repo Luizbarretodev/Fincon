@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fincon.Application.Interfaces;
 
-public interface IContaRepository
+public interface ICategoriaSaidaRepository
 {
-    Task CriaContaAsync(Conta conta);
+    Task CriaSaidaAsync(CategoriaSaida saida);
 }
