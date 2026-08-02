@@ -20,7 +20,7 @@ public class CriaContaUseCase
     public async Task<Conta> ExecutarAsync(string nome)
     {
         var conta = new Conta(nome);
-        await _contaRepository.CriarContaAsync(conta);
+        await _contaRepository.CriaContaAsync(conta);
 
         return conta;
     }
