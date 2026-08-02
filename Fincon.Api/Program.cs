@@ -16,6 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IContaRepository, ContaRepository>();
+builder.Services.AddScoped<ICategoriaEntradaRepository, CategoriaEntradaRepository>();
+builder.Services.AddScoped<ICategoriaSaidaRepository, CategoriaSaidaRepository>();
 builder.Services.AddScoped<CriaContaUseCase>();
 
 
