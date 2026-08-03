@@ -1,4 +1,5 @@
-﻿using Fincon.Domain.Entities;
+﻿using Fincon.Application.Interfaces;
+using Fincon.Domain.Entities;
 using Fincon.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Fincon.Infrastructure.Repositories;
 
-public class RecorrenciaRepository
+public class RecorrenciaRepository : IRecorrenciaRepository
 {
     private readonly AppDbContext _context;
 
@@ -22,7 +23,7 @@ public class RecorrenciaRepository
     {
         return await _context.Recorrencias.AnyAsync(c => c.Id == id);
     }
-    public async Task CriaContaAsync(Recorrencia recorrencias)
+    public async Task AdicionarAsync(Recorrencia recorrencias)
     {
         _context.Add(recorrencias);
         await _context.SaveChangesAsync();
