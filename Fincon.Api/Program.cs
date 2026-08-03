@@ -18,6 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IContaRepository, ContaRepository>();
 builder.Services.AddScoped<ICategoriaEntradaRepository, CategoriaEntradaRepository>();
 builder.Services.AddScoped<ICategoriaSaidaRepository, CategoriaSaidaRepository>();
+builder.Services.AddScoped<IEntradaRepository, EntradaRepository>();
+builder.Services.AddScoped<ISaidaRepository, SaidaRepository>();
 builder.Services.AddScoped<CriaContaUseCase>();
 
 
