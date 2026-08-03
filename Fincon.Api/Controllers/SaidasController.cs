@@ -2,35 +2,34 @@
 using Fincon.Application.UseCases.Movimentacoes;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Fincon.Api.Controllers
+namespace Fincon.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class SaidasController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class SaidasController : ControllerBase
+    private readonly CriaSaidaUseCase _criaSaidaUseCase;
+
+    public SaidasController(CriaSaidaUseCase criaSaidaUseCase)
     {
-        private readonly CriaSaidaUseCase _criaSaidaUseCase;
+        _criaSaidaUseCase = criaSaidaUseCase;
+    }
 
-        public SaidasController(CriaSaidaUseCase criaSaidaUseCase)
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] CriaSaidaRequest request)
+    {
+        var saida = await _criaSaidaUseCase.ExecutarAsync(request.Data, request.Valor, request.Descricao, request.Status,
+                                                              request.ContaId, request.RecorrenciaId, request.CategoriaSaidaId);
+
+        return Ok(new
         {
-            _criaSaidaUseCase = criaSaidaUseCase;
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CriaSaidaRequest request)
-        {
-            var saida = await _criaSaidaUseCase.ExecutarAsync(request.Data, request.Valor, request.Descricao, request.Status,
-                                                                  request.ContaId, request.RecorrenciaId, request.CategoriaSaidaId);
-
-            return Ok(new
-            {
-                saida.Id,
-                saida.Data,
-                saida.Valor,
-                saida.Descricao,
-                saida.Status,
-                saida.ContaId,
-                saida.CategoriaSaidaId
-            });
-        }
+            saida.Id,
+            saida.Data,
+            saida.Valor,
+            saida.Descricao,
+            saida.Status,
+            saida.ContaId,
+            saida.CategoriaSaidaId
+        });
     }
 }
