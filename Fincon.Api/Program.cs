@@ -21,6 +21,7 @@ builder.Services.AddScoped<ICategoriaEntradaRepository, CategoriaEntradaReposito
 builder.Services.AddScoped<ICategoriaSaidaRepository, CategoriaSaidaRepository>();
 builder.Services.AddScoped<IEntradaRepository, EntradaRepository>();
 builder.Services.AddScoped<ISaidaRepository, SaidaRepository>();
+builder.Services.AddScoped<IRecorrenciaRepository, RecorrenciaRepository>();
 builder.Services.AddScoped<CriaContaUseCase>();
 builder.Services.AddScoped<CriaEntradaUseCase>();
 builder.Services.AddScoped<CriaSaidaUseCase>();
