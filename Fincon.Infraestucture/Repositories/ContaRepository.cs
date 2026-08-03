@@ -1,6 +1,7 @@
 ﻿using Fincon.Application.Interfaces;
 using Fincon.Domain.Entities;
 using Fincon.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,11 @@ public class ContaRepository : IContaRepository
     public ContaRepository(AppDbContext context)
     {
         _context = context;
+    }
+
+    public async Task<bool> ExisteAsync(Guid id)
+    {
+        return await _context.Contas.AnyAsync(c => c.Id == id);
     }
     public async Task CriaContaAsync(Conta conta)
     {

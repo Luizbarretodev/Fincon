@@ -1,6 +1,7 @@
 ﻿using Fincon.Application.Interfaces;
 using Fincon.Domain.Entities;
 using Fincon.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,10 @@ public class CategoriaSaidaRepository : ICategoriaSaidaRepository
     public CategoriaSaidaRepository(AppDbContext context)
     {
         _context = context;
+    }
+    public async Task<bool> ExisteAsync(Guid id)
+    {
+        return await _context.CategoriasSaida.AnyAsync(cs => cs.Id == id);
     }
     public async Task CriaSaidaAsync(CategoriaSaida saida)
     {
