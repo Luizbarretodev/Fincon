@@ -9,5 +9,5 @@ namespace Fincon.Application.Interfaces;
 
 public interface IEntradaRepository
 {
-    Task AdicionarAsync(Entrada entrada)
+    Task AdicionarAsync(Entrada entrada);
 }
