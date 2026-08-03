@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Fincon.Application.Interfaces;
-public interface ICategoriaEntradaRepository
+
+public interface IEntradaRepository
 {
-    Task<bool> ExisteAsync(Guid id);
-    Task CriaEntradaAsync(CategoriaEntrada entrada);
+    Task AdicionarAsync(Entrada entrada)
 }
