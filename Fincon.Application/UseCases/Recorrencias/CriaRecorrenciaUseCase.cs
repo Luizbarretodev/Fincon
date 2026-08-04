@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Fincon.Application.UseCases.Recorrencias;
 
-public class CriarRecorrenciaUseCase
+public class CriaRecorrenciaUseCase
 {
     private readonly IRecorrenciaRepository _recorrenciaRepository;
 
-    public CriarRecorrenciaUseCase(IRecorrenciaRepository recorrenciaRepository)
+    public CriaRecorrenciaUseCase(IRecorrenciaRepository recorrenciaRepository)
     {
         recorrenciaRepository = recorrenciaRepository;
     }
