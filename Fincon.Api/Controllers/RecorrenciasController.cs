@@ -23,6 +23,7 @@ public class RecorrenciasController : ControllerBase
 
         return Ok(new
         {
+            recorrencia.Id,
             recorrencia.Descricao,
             recorrencia.ValorParcela,
             recorrencia.QuantidadeParcelas,
