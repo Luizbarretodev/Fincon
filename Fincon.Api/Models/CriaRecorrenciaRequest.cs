@@ -3,9 +3,9 @@
 namespace Fincon.Api.Models;
 
 public record CriaRecorrenciaRequest(
-    string descricao,
-    decimal valorParcela,
-    int quantidadeParcelas,
-    DateTime dataInicio,
-    TipoRecorrencia tipo
+    string Descricao,
+    decimal ValorParcela,
+    int QuantidadeParcelas,
+    DateTime DataInicio,
+    TipoRecorrencia Tipo
 );

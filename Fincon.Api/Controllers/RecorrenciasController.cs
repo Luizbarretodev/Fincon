@@ -18,8 +18,8 @@ public class RecorrenciasController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody]CriaRecorrenciaRequest request)
     {
-        var recorrencia = await _criaRecorrenciaUseCase.ExecutarAsync(request.descricao, request.valorParcela, request.quantidadeParcelas,
-                                                                      request.dataInicio, request.tipo);
+        var recorrencia = await _criaRecorrenciaUseCase.ExecutarAsync(request.Descricao, request.ValorParcela, request.QuantidadeParcelas,
+                                                                      request.DataInicio, request.Tipo);
 
         return Ok(new
         {
