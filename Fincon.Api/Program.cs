@@ -1,6 +1,8 @@
+using Fincon.Api.Models;
 using Fincon.Application.Interfaces;
 using Fincon.Application.UseCases.Categorias;
 using Fincon.Application.UseCases.Contas;
+using Fincon.Application.UseCases.Recorrencias;
 using Fincon.Infrastructure.Context;
 using Fincon.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +27,7 @@ builder.Services.AddScoped<IRecorrenciaRepository, RecorrenciaRepository>();
 builder.Services.AddScoped<CriaContaUseCase>();
 builder.Services.AddScoped<CriaEntradaUseCase>();
 builder.Services.AddScoped<CriaSaidaUseCase>();
+builder.Services.AddScoped<CriaRecorrenciaUseCase>();
 
 
 var app = builder.Build();
