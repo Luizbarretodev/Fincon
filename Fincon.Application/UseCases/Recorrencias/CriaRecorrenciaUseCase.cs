@@ -15,7 +15,7 @@ public class CriaRecorrenciaUseCase
 
     public CriaRecorrenciaUseCase(IRecorrenciaRepository recorrenciaRepository)
     {
-        recorrenciaRepository = recorrenciaRepository;
+        _recorrenciaRepository = recorrenciaRepository;
     }
 
     public async Task<Recorrencia> ExecutarAsync(string descricao, decimal valorParcela, int quantidadeParcelas, 
