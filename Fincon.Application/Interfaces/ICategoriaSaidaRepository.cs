@@ -9,6 +9,7 @@ namespace Fincon.Application.Interfaces;
 
 public interface ICategoriaSaidaRepository
 {
+    Task<List<CategoriaSaida>> ListarCategoriasSaida();
     Task<bool> ExisteAsync(Guid id);
     Task CriaSaidaAsync(CategoriaSaida saida);
 }

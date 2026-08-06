@@ -19,6 +19,6 @@ public class ListaCategoriasEntradaUseCase
 
     public async Task<List<CategoriaEntrada>> ExecutarAsync()
     {
-        return await _categoriaEntradaRepository.ListarCategorias();
+        return await _categoriaEntradaRepository.ListarCategoriasEntrada();
     }
 }

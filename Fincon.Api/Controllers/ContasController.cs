@@ -10,9 +10,9 @@ namespace Fincon.Api.Controllers;
 public class ContasController : ControllerBase
 {
     private readonly CriaContaUseCase _criaContaUseCase;
-    private readonly ListarContasUseCase _listarContasUseCase;
+    private readonly ListaContasUseCase _listarContasUseCase;
 
-    public ContasController(CriaContaUseCase criaContaUseCase, ListarContasUseCase listarContasUseCase)
+    public ContasController(CriaContaUseCase criaContaUseCase, ListaContasUseCase listarContasUseCase)
     {
         _criaContaUseCase = criaContaUseCase;
         _listarContasUseCase = listarContasUseCase;
