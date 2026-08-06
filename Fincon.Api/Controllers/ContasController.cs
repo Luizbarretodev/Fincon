@@ -1,5 +1,6 @@
 ﻿using Fincon.Api.Models;
 using Fincon.Application.UseCases.Contas;
+using Fincon.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fincon.Api.Controllers;
@@ -9,10 +10,19 @@ namespace Fincon.Api.Controllers;
 public class ContasController : ControllerBase
 {
     private readonly CriaContaUseCase _criaContaUseCase;
+    private readonly ListarContasUseCase _listarContasUseCase;
 
-    public ContasController(CriaContaUseCase criaContaUseCase)
+    public ContasController(CriaContaUseCase criaContaUseCase, ListarContasUseCase listarContasUseCase)
     {
         _criaContaUseCase = criaContaUseCase;
+        _listarContasUseCase = listarContasUseCase;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var contas = await _listarContasUseCase.ExecutarAsync();
+        return Ok(contas.Select(c => new { c.Id, c.Nome }));
     }
 
     [HttpPost]

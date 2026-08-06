@@ -19,6 +19,11 @@ public class ContaRepository : IContaRepository
         _context = context;
     }
 
+    public async Task<List<Conta>> ListarAsync()
+    {
+        return await _context.Contas.ToListAsync();
+    }
+
     public async Task<bool> ExisteAsync(Guid id)
     {
         return await _context.Contas.AnyAsync(c => c.Id == id);

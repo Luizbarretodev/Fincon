@@ -28,6 +28,7 @@ builder.Services.AddScoped<CriaContaUseCase>();
 builder.Services.AddScoped<CriaEntradaUseCase>();
 builder.Services.AddScoped<CriaSaidaUseCase>();
 builder.Services.AddScoped<CriaRecorrenciaUseCase>();
+builder.Services.AddScoped<ListarContasUseCase>();
 
 builder.Services.AddCors(options =>
 {
