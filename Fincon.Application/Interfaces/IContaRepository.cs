@@ -9,6 +9,7 @@ namespace Fincon.Application.Interfaces;
 
 public interface IContaRepository
 {
+    Task<List<Conta>> ListarAsync();
     Task<bool> ExisteAsync(Guid id);
     Task CriaContaAsync(Conta conta);
 }
