@@ -19,7 +19,7 @@ public class CategoriaEntradaRepository : ICategoriaEntradaRepository
         _context = context;
     }
 
-    public async Task<List<CategoriaEntrada>> ListarCategorias()
+    public async Task<List<CategoriaEntrada>> ListarCategoriasEntrada()
     {
         return await _context.CategoriasEntrada.ToListAsync();
     }
