@@ -8,17 +8,27 @@ namespace Fincon.Api.Controllers;
 [ApiController]
 public class CategoriasEntradaController : ControllerBase
 {
-    private readonly CriaEntradaUseCase _criaEntradaUseCase;
+    private readonly CriaCategoriaEntradaUseCase _criaCategoriaEntradaUseCase;
+    private readonly ListaCategoriasEntradaUseCase _listaCategoriasEntradaUseCase;
 
-    public CategoriasEntradaController(CriaEntradaUseCase criaEntradaUseCase)
+    public CategoriasEntradaController(CriaCategoriaEntradaUseCase criaEntradaUseCase, ListaCategoriasEntradaUseCase listaCategoriasEntradaUseCase)
     {
-        _criaEntradaUseCase = criaEntradaUseCase;
+        _criaCategoriaEntradaUseCase = criaEntradaUseCase;
+        _listaCategoriasEntradaUseCase = listaCategoriasEntradaUseCase;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var categoriasEntrada = await _listaCategoriasEntradaUseCase.ExecutarAsync();
+
+        return Ok(categoriasEntrada.Select(ce => new { ce.Id, ce.Nome }));
     }
 
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] CriaCategoriaEntradaRequest request)
     {
-        var entrada = await _criaEntradaUseCase.ExecutarAsync(request.Nome);
+        var entrada = await _criaCategoriaEntradaUseCase.ExecutarAsync(request.Nome);
 
         return Ok(new { entrada.Id, entrada.Nome });
     }

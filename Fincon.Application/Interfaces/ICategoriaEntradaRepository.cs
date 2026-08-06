@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Fincon.Application.Interfaces;
 public interface ICategoriaEntradaRepository
 {
+    Task<List<CategoriaEntrada>> ListarCategorias();
     Task<bool> ExisteAsync(Guid id);
     Task CriaEntradaAsync(CategoriaEntrada entrada);
 }

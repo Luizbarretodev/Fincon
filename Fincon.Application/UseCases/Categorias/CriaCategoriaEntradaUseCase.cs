@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Fincon.Application.UseCases.Categorias;
 
-public class CriaEntradaUseCase
+public class CriaCategoriaEntradaUseCase
 {
     private readonly ICategoriaEntradaRepository _categoriaEntradaRepository;
 
-    public CriaEntradaUseCase(ICategoriaEntradaRepository categoriaEntradaRepository)
+    public CriaCategoriaEntradaUseCase(ICategoriaEntradaRepository categoriaEntradaRepository)
     {
         _categoriaEntradaRepository = categoriaEntradaRepository;
     }

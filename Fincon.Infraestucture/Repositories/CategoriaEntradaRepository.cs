@@ -18,6 +18,11 @@ public class CategoriaEntradaRepository : ICategoriaEntradaRepository
     {
         _context = context;
     }
+
+    public async Task<List<CategoriaEntrada>> ListarCategorias()
+    {
+        return await _context.CategoriasEntrada.ToListAsync();
+    }
     public async Task<bool> ExisteAsync(Guid id)
     {
         return await _context.CategoriasEntrada.AnyAsync(ce => ce.Id == id);
