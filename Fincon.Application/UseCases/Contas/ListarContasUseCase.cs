@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Fincon.Application.UseCases.Contas;
 
-public class ListaContasUseCase
+public class ListarContasUseCase
 {
     private readonly IContaRepository _contaRepository;
 
-    public ListaContasUseCase(IContaRepository contaRepository)
+    public ListarContasUseCase(IContaRepository contaRepository)
     {
         _contaRepository = contaRepository;
     }

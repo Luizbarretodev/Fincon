@@ -8,20 +8,17 @@ using System.Threading.Tasks;
 
 namespace Fincon.Application.UseCases.Categorias;
 
-public class CriaCategoriaEntradaUseCase
+public class ListarCategoriasEntradaUseCase
 {
     private readonly ICategoriaEntradaRepository _categoriaEntradaRepository;
 
-    public CriaCategoriaEntradaUseCase(ICategoriaEntradaRepository categoriaEntradaRepository)
+    public ListarCategoriasEntradaUseCase(ICategoriaEntradaRepository categoriaEntradaRepository)
     {
         _categoriaEntradaRepository = categoriaEntradaRepository;
     }
 
-    public async Task<CategoriaEntrada> ExecutarAsync(string nome)
+    public async Task<List<CategoriaEntrada>> ExecutarAsync()
     {
-        var entrada = new CategoriaEntrada(nome);
-        await _categoriaEntradaRepository.CriaEntradaAsync(entrada);
-
-        return entrada;
+        return await _categoriaEntradaRepository.ListarCategoriasEntrada();
     }
 }

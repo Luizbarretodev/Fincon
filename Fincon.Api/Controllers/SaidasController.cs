@@ -8,9 +8,9 @@ namespace Fincon.Api.Controllers;
 [ApiController]
 public class SaidasController : ControllerBase
 {
-    private readonly CriaSaidaUseCase _criaSaidaUseCase;
+    private readonly CriarSaidaUseCase _criaSaidaUseCase;
 
-    public SaidasController(CriaSaidaUseCase criaSaidaUseCase)
+    public SaidasController(CriarSaidaUseCase criaSaidaUseCase)
     {
         _criaSaidaUseCase = criaSaidaUseCase;
     }

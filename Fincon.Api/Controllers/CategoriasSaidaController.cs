@@ -8,10 +8,10 @@ namespace Fincon.Api.Controllers;
 [ApiController]
 public class CategoriasSaidaController : ControllerBase
 {
-    private readonly CriaCategoriaSaidaUseCase _criaCategoriaSaidaUseCase;
-    private readonly ListaCategoriasSaidaUseCase _listaCategoriasSaidaUseCase;
+    private readonly CriarCategoriaSaidaUseCase _criaCategoriaSaidaUseCase;
+    private readonly ListarCategoriasSaidaUseCase _listaCategoriasSaidaUseCase;
 
-    public CategoriasSaidaController(CriaCategoriaSaidaUseCase criaSaidaUseCase, ListaCategoriasSaidaUseCase listaCategoriasSaidaUseCase)
+    public CategoriasSaidaController(CriarCategoriaSaidaUseCase criaSaidaUseCase, ListarCategoriasSaidaUseCase listaCategoriasSaidaUseCase)
     {
         _criaCategoriaSaidaUseCase = criaSaidaUseCase;
         _listaCategoriasSaidaUseCase = listaCategoriasSaidaUseCase;

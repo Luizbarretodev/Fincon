@@ -8,9 +8,9 @@ namespace Fincon.Api.Controllers;
 [ApiController]
 public class EntradasController : ControllerBase
 {
-    private readonly CriaEntradaUseCase _criaEntradaUseCase;
+    private readonly CriarEntradaUseCase _criaEntradaUseCase;
 
-    public EntradasController(CriaEntradaUseCase criaEntradaUseCase)
+    public EntradasController(CriarEntradaUseCase criaEntradaUseCase)
     {
         _criaEntradaUseCase = criaEntradaUseCase;
     }

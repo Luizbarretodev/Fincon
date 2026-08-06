@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Fincon.Application.UseCases.Movimentacoes;
 
-public class CriaEntradaUseCase
+public class CriarEntradaUseCase
 {
     private readonly IEntradaRepository _entradaRepository;
     private readonly IContaRepository _contaRepository;
     private readonly ICategoriaEntradaRepository _categoriaEntradaRepository;
 
-    public CriaEntradaUseCase(IEntradaRepository entradaRepository, IContaRepository contaRepository, ICategoriaEntradaRepository categoriaEntradaRepository)
+    public CriarEntradaUseCase(IEntradaRepository entradaRepository, IContaRepository contaRepository, ICategoriaEntradaRepository categoriaEntradaRepository)
     {
         _entradaRepository = entradaRepository;
         _contaRepository = contaRepository;

@@ -24,13 +24,13 @@ builder.Services.AddScoped<ICategoriaSaidaRepository, CategoriaSaidaRepository>(
 builder.Services.AddScoped<IEntradaRepository, EntradaRepository>();
 builder.Services.AddScoped<ISaidaRepository, SaidaRepository>();
 builder.Services.AddScoped<IRecorrenciaRepository, RecorrenciaRepository>();
-builder.Services.AddScoped<CriaContaUseCase>();
-builder.Services.AddScoped<CriaCategoriaEntradaUseCase>();
-builder.Services.AddScoped<CriaCategoriaSaidaUseCase>();
-builder.Services.AddScoped<CriaRecorrenciaUseCase>();
-builder.Services.AddScoped<ListaContasUseCase>();
-builder.Services.AddScoped<ListaCategoriasSaidaUseCase>();
-builder.Services.AddScoped<ListaCategoriasEntradaUseCase>();
+builder.Services.AddScoped<CriarContaUseCase>();
+builder.Services.AddScoped<CriarCategoriaEntradaUseCase>();
+builder.Services.AddScoped<CriarCategoriaSaidaUseCase>();
+builder.Services.AddScoped<CriarRecorrenciaUseCase>();
+builder.Services.AddScoped<ListarContasUseCase>();
+builder.Services.AddScoped<ListarCategoriasSaidaUseCase>();
+builder.Services.AddScoped<ListarCategoriasEntradaUseCase>();
 
 builder.Services.AddCors(options =>
 {

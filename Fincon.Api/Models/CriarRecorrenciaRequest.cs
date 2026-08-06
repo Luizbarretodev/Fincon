@@ -2,7 +2,7 @@
 
 namespace Fincon.Api.Models;
 
-public record CriaRecorrenciaRequest(
+public record CriarRecorrenciaRequest(
     string Descricao,
     decimal ValorParcela,
     int QuantidadeParcelas,

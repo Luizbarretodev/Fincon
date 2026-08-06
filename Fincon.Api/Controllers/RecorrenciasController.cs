@@ -8,15 +8,15 @@ namespace Fincon.Api.Controllers;
 [ApiController]
 public class RecorrenciasController : ControllerBase
 {
-    private readonly CriaRecorrenciaUseCase _criaRecorrenciaUseCase;
+    private readonly CriarRecorrenciaUseCase _criaRecorrenciaUseCase;
 
-    public RecorrenciasController(CriaRecorrenciaUseCase criaRecorrenciaUseCase)
+    public RecorrenciasController(CriarRecorrenciaUseCase criaRecorrenciaUseCase)
     {
         _criaRecorrenciaUseCase = criaRecorrenciaUseCase;
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]CriaRecorrenciaRequest request)
+    public async Task<IActionResult> Post([FromBody]CriarRecorrenciaRequest request)
     {
         var recorrencia = await _criaRecorrenciaUseCase.ExecutarAsync(request.Descricao, request.ValorParcela, request.QuantidadeParcelas,
                                                                       request.DataInicio, request.Tipo);

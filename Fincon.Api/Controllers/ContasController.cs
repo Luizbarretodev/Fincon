@@ -9,10 +9,10 @@ namespace Fincon.Api.Controllers;
 [ApiController]
 public class ContasController : ControllerBase
 {
-    private readonly CriaContaUseCase _criaContaUseCase;
-    private readonly ListaContasUseCase _listarContasUseCase;
+    private readonly CriarContaUseCase _criaContaUseCase;
+    private readonly ListarContasUseCase _listarContasUseCase;
 
-    public ContasController(CriaContaUseCase criaContaUseCase, ListaContasUseCase listarContasUseCase)
+    public ContasController(CriarContaUseCase criaContaUseCase, ListarContasUseCase listarContasUseCase)
     {
         _criaContaUseCase = criaContaUseCase;
         _listarContasUseCase = listarContasUseCase;
@@ -26,7 +26,7 @@ public class ContasController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] CriarContaRequest request)
+    public async Task<IActionResult> Post([FromBody] CriaContaRequest request)
     {
         var conta = await _criaContaUseCase.ExecutarAsync(request.Nome);
 
