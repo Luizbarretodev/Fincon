@@ -29,8 +29,19 @@ builder.Services.AddScoped<CriaEntradaUseCase>();
 builder.Services.AddScoped<CriaSaidaUseCase>();
 builder.Services.AddScoped<CriaRecorrenciaUseCase>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Fincon-web", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
+
+app.UseCors("Fincon-web");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
