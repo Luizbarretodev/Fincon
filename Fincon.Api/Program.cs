@@ -36,7 +36,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("Fincon-web", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+               policy.WithOrigins(builder.Configuration["FrontendUrl"]!)
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
