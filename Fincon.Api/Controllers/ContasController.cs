@@ -11,9 +11,14 @@ public class ContasController : ControllerBase
 {
     private readonly CriarContaUseCase _criaContaUseCase;
     private readonly ListarContasUseCase _listarContasUseCase;
+    private readonly AtualizarContaUseCase _atualizarContaUseCase;
+    private readonly ExcluirContaUseCase _excluirContaUseCase;
 
-    public ContasController(CriarContaUseCase criaContaUseCase, ListarContasUseCase listarContasUseCase)
+    public ContasController(AtualizarContaUseCase atualizarContaUseCase, ExcluirContaUseCase excluirContaUseCase,
+                            CriarContaUseCase criaContaUseCase, ListarContasUseCase listarContasUseCase)
     {
+        _atualizarContaUseCase = atualizarContaUseCase;
+        _excluirContaUseCase = excluirContaUseCase;
         _criaContaUseCase = criaContaUseCase;
         _listarContasUseCase = listarContasUseCase;
     }
@@ -30,6 +35,27 @@ public class ContasController : ControllerBase
     {
         var conta = await _criaContaUseCase.ExecutarAsync(request.Nome);
 
-        return Ok(new { conta.Id, conta.Nome }); 
+        return Ok(new { conta.Id, conta.Nome });
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Put(Guid id, [FromBody] AtualizarContaRequest request)
+    {
+        try
+        {
+            var conta = await _atualizarContaUseCase.ExecutarAsync(id, request.nome);
+            return Ok(new { conta.Id, conta.Nome });
+        }
+        catch(ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        await _excluirContaUseCase.ExecutarAsync(id);
+        return NoContent();
     }
 }
