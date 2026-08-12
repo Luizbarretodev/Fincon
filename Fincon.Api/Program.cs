@@ -31,6 +31,8 @@ builder.Services.AddScoped<CriarRecorrenciaUseCase>();
 builder.Services.AddScoped<ListarContasUseCase>();
 builder.Services.AddScoped<ListarCategoriasSaidaUseCase>();
 builder.Services.AddScoped<ListarCategoriasEntradaUseCase>();
+builder.Services.AddScoped<AtualizarContaUseCase>();
+builder.Services.AddScoped<ExcluirContaUseCase>();
 
 builder.Services.AddCors(options =>
 {
