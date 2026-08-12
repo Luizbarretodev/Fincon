@@ -33,4 +33,25 @@ public class ContaRepository : IContaRepository
         _context.Add(conta);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<Conta?> ObterPorIdAsync(Guid id)
+    {
+        return await _context.Contas.FindAsync(id);
+    }
+
+    public async Task AtualizarAsync(Conta conta)
+    {
+        _context.Contas.Add(conta);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task ExcluirAsync(Guid id)
+    {
+        var conta = await _context.Contas.FindAsync(id);
+        if (conta != null)
+        {
+            _context.Contas.Remove(conta);
+            await _context.SaveChangesAsync();
+        }
+    }
 }

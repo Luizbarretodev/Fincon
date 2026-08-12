@@ -13,12 +13,21 @@ public class Conta
 
     public Conta(string nome)
     {
-        if(string.IsNullOrWhiteSpace(nome))
+        if (string.IsNullOrWhiteSpace(nome))
         {
             throw new ArgumentException("Nome é obrigatório", nameof(nome));
         }
         Nome = nome;
 
         Id = Guid.NewGuid();
+    }
+
+    public void AtualizarNome(string nome)
+    {
+        if (string.IsNullOrWhiteSpace(nome))
+        {
+            throw new ArgumentException("Nome é obrigatório", nameof(nome));
+        }
+        Nome = nome;
     }
 }
