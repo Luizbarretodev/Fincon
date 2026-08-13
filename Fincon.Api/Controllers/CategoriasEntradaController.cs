@@ -10,11 +10,14 @@ public class CategoriasEntradaController : ControllerBase
 {
     private readonly CriarCategoriaEntradaUseCase _criaCategoriaEntradaUseCase;
     private readonly ListarCategoriasEntradaUseCase _listaCategoriasEntradaUseCase;
+    private readonly AtualizarCategoriaEntradaUseCase _atualizarCategoriaEntradaUseCase;
 
-    public CategoriasEntradaController(CriarCategoriaEntradaUseCase criaEntradaUseCase, ListarCategoriasEntradaUseCase listaCategoriasEntradaUseCase)
+    public CategoriasEntradaController(CriarCategoriaEntradaUseCase criaEntradaUseCase, ListarCategoriasEntradaUseCase listaCategoriasEntradaUseCase,
+                                       AtualizarCategoriaEntradaUseCase atualizarCategoriaEntradaUseCase)
     {
         _criaCategoriaEntradaUseCase = criaEntradaUseCase;
         _listaCategoriasEntradaUseCase = listaCategoriasEntradaUseCase;
+        _atualizarCategoriaEntradaUseCase = atualizarCategoriaEntradaUseCase;
     }
 
     [HttpGet]
@@ -31,5 +34,19 @@ public class CategoriasEntradaController : ControllerBase
         var entrada = await _criaCategoriaEntradaUseCase.ExecutarAsync(request.Nome);
 
         return Ok(new { entrada.Id, entrada.Nome });
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Put(Guid id, [FromBody] AtualizarCategoriaEntradaRequest request)
+    {
+        try
+        {
+            var entrada = await _atualizarCategoriaEntradaUseCase.ExecutarAsync(id, request.nome);
+            return Ok(new { entrada.Id, entrada.Nome });
+        }
+        catch(ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

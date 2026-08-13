@@ -33,4 +33,25 @@ public class CategoriaEntradaRepository : ICategoriaEntradaRepository
 
         await _context.SaveChangesAsync();
     }
+
+    public async Task<CategoriaEntrada?> ObterPorIdAsync(Guid id)
+    {
+        return await _context.CategoriasEntrada.FindAsync(id);
+    }
+
+    public async Task AtualizarAsync(CategoriaEntrada entrada)
+    {
+        _context.CategoriasEntrada.Add(entrada);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task ExcluirAsync(Guid id)
+    {
+        var entrada = await _context.CategoriasEntrada.FindAsync(id);
+        if(entrada != null)
+        {
+            _context.Remove(entrada);
+            await _context.SaveChangesAsync();
+        }
+    }
 }
