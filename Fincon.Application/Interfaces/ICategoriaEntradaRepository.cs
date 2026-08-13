@@ -11,7 +11,4 @@ public interface ICategoriaEntradaRepository
     Task<List<CategoriaEntrada>> ListarCategoriasEntrada();
     Task<bool> ExisteAsync(Guid id);
     Task CriaEntradaAsync(CategoriaEntrada entrada);
-    Task<CategoriaEntrada?> ObterPorIdAsync(Guid id);
-    Task AtualizarAsync(CategoriaEntrada entrada);
-    Task ExcluirAsync(Guid id);
 }
