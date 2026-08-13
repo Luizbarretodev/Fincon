@@ -33,25 +33,4 @@ public class CategoriaSaidaRepository : ICategoriaSaidaRepository
 
         await _context.SaveChangesAsync();
     }
-
-    public async Task<CategoriaSaida?> ObterPorIdAsync(Guid id)
-    {
-        return await _context.CategoriasSaida.FindAsync(id);
-    }
-
-    public async Task AtualizarAsync(CategoriaSaida saida)
-    {
-        _context.CategoriasSaida.Add(saida);
-        await _context.SaveChangesAsync();
-    }
-
-    public async Task ExcluirAsync(Guid id)
-    {
-        var saida = await _context.CategoriasSaida.FindAsync(id);
-        if(saida != null)
-        {
-            _context.Remove(saida);
-            await _context.SaveChangesAsync();
-        }
-    }
 }
