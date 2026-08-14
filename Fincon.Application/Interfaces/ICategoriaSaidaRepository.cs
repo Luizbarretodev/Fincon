@@ -13,6 +13,6 @@ public interface ICategoriaSaidaRepository
     Task<bool> ExisteAsync(Guid id);
     Task CriaSaidaAsync(CategoriaSaida saida);
     Task<CategoriaSaida> ObterPorIdAsync(Guid id);
-    Task AtualizarAsync(CategoriaEntrada entrada);
+    Task AtualizarAsync(CategoriaSaida saida);
     Task ExcluirAsync(Guid id);
 }
