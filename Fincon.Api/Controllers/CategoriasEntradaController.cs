@@ -10,11 +10,16 @@ public class CategoriasEntradaController : ControllerBase
 {
     private readonly CriarCategoriaEntradaUseCase _criaCategoriaEntradaUseCase;
     private readonly ListarCategoriasEntradaUseCase _listaCategoriasEntradaUseCase;
+    private readonly AtualizarCategoriaEntradaUseCase _atualizarCategoriaEntradaUseCase;
+    private readonly ExcluirCategoriaEntradaUseCase _excluirCategoriaEntradaUseCase;
 
-    public CategoriasEntradaController(CriarCategoriaEntradaUseCase criaEntradaUseCase, ListarCategoriasEntradaUseCase listaCategoriasEntradaUseCase)
+    public CategoriasEntradaController(CriarCategoriaEntradaUseCase criaEntradaUseCase, ListarCategoriasEntradaUseCase listaCategoriasEntradaUseCase,
+        AtualizarCategoriaEntradaUseCase atualizarCategoriaEntradaUseCase, ExcluirCategoriaEntradaUseCase excluirCategoriaEntradaUseCase)
     {
         _criaCategoriaEntradaUseCase = criaEntradaUseCase;
         _listaCategoriasEntradaUseCase = listaCategoriasEntradaUseCase;
+        _atualizarCategoriaEntradaUseCase = atualizarCategoriaEntradaUseCase;
+        _excluirCategoriaEntradaUseCase = excluirCategoriaEntradaUseCase;
     }
 
     [HttpGet]
@@ -31,5 +36,26 @@ public class CategoriasEntradaController : ControllerBase
         var entrada = await _criaCategoriaEntradaUseCase.ExecutarAsync(request.Nome);
 
         return Ok(new { entrada.Id, entrada.Nome });
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Put(Guid id, [FromBody] AtualizarCategoriaEntradaRequest request)
+    {
+        try
+        {
+            var categoriaEntrada = await _atualizarCategoriaEntradaUseCase.ExecutarAsync(id, request.Nome);
+            return Ok(new { categoriaEntrada.Id, categoriaEntrada.Nome });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        await _excluirCategoriaEntradaUseCase.ExecutarAsync(id);
+        return NoContent();
     }
 }
