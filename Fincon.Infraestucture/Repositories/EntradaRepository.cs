@@ -24,4 +24,25 @@ public class EntradaRepository : IEntradaRepository
 
         await _context.SaveChangesAsync();
     }
+
+    public async Task<Entrada?> ObterPorIdAsync(Guid id)
+    {
+        return await _context.Entradas.FindAsync(id);
+    }
+
+    public async Task AtualizarAsync(Entrada entrada)
+    {
+        _context.Entradas.Update(entrada);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task ExcluirAsync(Guid id)
+    {
+        var entrada = await _context.Entradas.FindAsync(id);
+        if (entrada != null)
+        {
+            _context.Entradas.Remove(entrada);
+            await _context.SaveChangesAsync();
+        }
+    }
 }
