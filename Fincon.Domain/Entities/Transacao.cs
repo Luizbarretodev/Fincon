@@ -42,4 +42,21 @@ public abstract class Transacao
         ContaId = contaId;
         RecorrenciaId = recorrenciaId;
     }
+
+    protected void AtualizarDados(DateTime data, decimal valor, string descricao, StatusTransacao status, Guid contaId, Guid? recorrenciaId)
+    {
+        if (valor <= 0)
+            throw new ArgumentException("O valor deve ser maior que zero", nameof(valor));
+        if (string.IsNullOrWhiteSpace(descricao))
+            throw new ArgumentException("A descricao é obrigatória", nameof(descricao));
+        if (contaId == Guid.Empty)
+            throw new ArgumentException("O id não pode ser vazio", nameof(contaId));
+
+        Data = data;
+        Valor = valor;
+        Descricao = descricao;
+        Status = status;
+        ContaId = contaId;
+        RecorrenciaId = recorrenciaId;
+    }
 }
