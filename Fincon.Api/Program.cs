@@ -2,6 +2,7 @@ using Fincon.Api.Models;
 using Fincon.Application.Interfaces;
 using Fincon.Application.UseCases.Categorias;
 using Fincon.Application.UseCases.Contas;
+using Fincon.Application.UseCases.Movimentacoes;
 using Fincon.Application.UseCases.Recorrencias;
 using Fincon.Infrastructure.Context;
 using Fincon.Infrastructure.Repositories;
@@ -37,6 +38,8 @@ builder.Services.AddScoped<AtualizarCategoriaSaidaUseCase>();
 builder.Services.AddScoped<ExcluirCategoriaSaidaUseCase>();
 builder.Services.AddScoped<AtualizarCategoriaEntradaUseCase>();
 builder.Services.AddScoped<ExcluirCategoriaEntradaUseCase>();
+builder.Services.AddScoped<AtualizarSaidaUseCase>();
+builder.Services.AddScoped<ExcluirSaidaUseCase>();
 
 builder.Services.AddCors(options =>
 {
