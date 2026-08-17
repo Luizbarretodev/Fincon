@@ -10,4 +10,7 @@ namespace Fincon.Application.Interfaces;
 public interface ISaidaRepository
 {
     Task AdicionarAsync(Saida saida);
+    Task<Saida?> ObterPorIdAsync(Guid id);
+    Task AtualizarAsync(Saida saida);
+    Task ExcluirAsync(Guid id);
 }
