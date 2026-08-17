@@ -17,10 +17,32 @@ public class SaidaRepository : ISaidaRepository
     {
         _context = context;
     }
+
     public async Task AdicionarAsync(Saida saida)
     {
         _context.Add(saida);
 
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<Saida?> ObterPorIdAsync(Guid id)
+    {
+        return await _context.Saidas.FindAsync(id);
+    }
+
+    public async Task AtualizarAsync(Saida saida)
+    {
+        _context.Saidas.Update(saida);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task ExcluirAsync(Guid id)
+    {
+        var saida = await _context.Saidas.FindAsync(id);
+        if (saida != null)
+        {
+            _context.Saidas.Remove(saida);
+            await _context.SaveChangesAsync();
+        }
     }
 }
