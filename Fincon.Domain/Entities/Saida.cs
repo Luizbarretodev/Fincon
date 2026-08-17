@@ -21,4 +21,13 @@ public class Saida : Transacao
 
         CategoriaSaidaId = categoriaSaidaId;
     }
+
+    public void Atualizar(DateTime data, decimal valor, string descricao, StatusTransacao status, Guid contaId, Guid? recorrenciaId, Guid categoriaSaidaId)
+    {
+        if (categoriaSaidaId == Guid.Empty)
+            throw new ArgumentException("Id não pode ser vazio", nameof(categoriaSaidaId));
+
+        AtualizarDados(data, valor, descricao, status, contaId, recorrenciaId);
+        CategoriaSaidaId = categoriaSaidaId;
+    }
 }
