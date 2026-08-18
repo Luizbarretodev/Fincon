@@ -39,4 +39,20 @@ public class Recorrencia
         DataInicio = dataInicio;
         Tipo = tipo;
     }
+
+    public void Atualizar(string descricao, decimal valorParcela, int quantidadeParcelas, DateTime dataInicio, TipoRecorrencia tipo)
+    {
+        if (string.IsNullOrWhiteSpace(descricao))
+            throw new ArgumentException("A descrição é obrigatória", nameof(descricao));
+        if (valorParcela <= 0)
+            throw new ArgumentException("O valor deve ser maior que zero", nameof(valorParcela));
+        if (quantidadeParcelas <= 0)
+            throw new ArgumentException("Quantidade deve ser 1 ou mais", nameof(quantidadeParcelas));
+
+        Descricao = descricao;
+        ValorParcela = valorParcela;
+        QuantidadeParcelas = quantidadeParcelas;
+        DataInicio = dataInicio;
+        Tipo = tipo;
+    }
 }
