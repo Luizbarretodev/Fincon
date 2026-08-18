@@ -40,6 +40,8 @@ builder.Services.AddScoped<AtualizarCategoriaEntradaUseCase>();
 builder.Services.AddScoped<ExcluirCategoriaEntradaUseCase>();
 builder.Services.AddScoped<AtualizarSaidaUseCase>();
 builder.Services.AddScoped<ExcluirSaidaUseCase>();
+builder.Services.AddScoped<AtualizarRecorrenciaUseCase>();
+builder.Services.AddScoped<ExcluirRecorrenciaUseCase>();
 
 builder.Services.AddCors(options =>
 {
