@@ -28,4 +28,25 @@ public class RecorrenciaRepository : IRecorrenciaRepository
         _context.Add(recorrencias);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<Recorrencia?> ObterPorIdAsync(Guid id)
+    {
+        return await _context.Recorrencias.FindAsync(id);
+    }
+
+    public async Task AtualizarAsync(Recorrencia recorrencia)
+    {
+        _context.Recorrencias.Update(recorrencia);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task ExcluirAsync(Guid id)
+    {
+        var recorrencia = await _context.Recorrencias.FindAsync(id);
+        if (recorrencia != null)
+        {
+            _context.Recorrencias.Remove(recorrencia);
+            await _context.SaveChangesAsync();
+        }
+    }
 }
