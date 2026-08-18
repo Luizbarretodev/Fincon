@@ -10,4 +10,7 @@ namespace Fincon.Application.Interfaces;
 public interface IRecorrenciaRepository
 {
     public Task AdicionarAsync(Recorrencia recorrencia);
+    Task<Recorrencia?> ObterPorIdAsync(Guid id);
+    Task AtualizarAsync(Recorrencia recorrencia);
+    Task ExcluirAsync(Guid id);
 }
