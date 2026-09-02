@@ -20,6 +20,7 @@ public class AppDbContext : DbContext
     public DbSet<Entrada> Entradas { get; set; }
     public DbSet<Saida> Saidas { get; set; }
     public DbSet<Recorrencia> Recorrencias { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; } 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -45,6 +46,20 @@ public class AppDbContext : DbContext
                 .IsRequired()
                 .HasMaxLength(100);
         });
+
+        modelBuilder.Entity<Usuario>(entity =>
+        {
+            entity.Property(u => u.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            entity.Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            entity.HasIndex(u => u.Email).IsUnique();
+        });
+
 
         modelBuilder.Entity<Transacao>(entity =>
         {
