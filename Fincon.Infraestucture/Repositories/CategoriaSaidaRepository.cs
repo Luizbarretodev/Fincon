@@ -50,7 +50,7 @@ public class CategoriaSaidaRepository : ICategoriaSaidaRepository
         var categoriaSaida = await _context.CategoriasSaida.FindAsync(id);
         if (categoriaSaida != null)
         {
-            _context.CategoriasEntrada.Remove(categoriaSaida);
+            _context.CategoriasSaida.Remove(categoriaSaida);
             await _context.SaveChangesAsync();
         }
     }
