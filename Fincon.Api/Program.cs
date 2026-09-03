@@ -6,6 +6,7 @@ using Fincon.Application.UseCases.Movimentacoes;
 using Fincon.Application.UseCases.Recorrencias;
 using Fincon.Infrastructure.Context;
 using Fincon.Infrastructure.Repositories;
+using Fincon.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,6 +43,7 @@ builder.Services.AddScoped<AtualizarSaidaUseCase>();
 builder.Services.AddScoped<ExcluirSaidaUseCase>();
 builder.Services.AddScoped<AtualizarRecorrenciaUseCase>();
 builder.Services.AddScoped<ExcluirRecorrenciaUseCase>();
+builder.Services.AddScoped<ISenhaHasher, SenhaHasher>();
 
 builder.Services.AddCors(options =>
 {
