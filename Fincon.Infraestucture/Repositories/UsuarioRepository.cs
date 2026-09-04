@@ -1,4 +1,4 @@
-﻿using Fincon.Application.Interfaces;
+﻿using Fincon.Application.Interfaces.Auth;
 using Fincon.Domain.Entities;
 using Fincon.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;

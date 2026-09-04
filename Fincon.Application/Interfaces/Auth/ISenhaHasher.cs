@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fincon.Application.Interfaces.Auth
+namespace Fincon.Application.Interfaces;
+
+public interface ISenhaHasher
 {
-    internal class ISenhaHasher
-    {
-    }
+    string GerarHash(string senha);
+    bool VerificarHash(string senhaHash, string senhaDigitada);
 }
