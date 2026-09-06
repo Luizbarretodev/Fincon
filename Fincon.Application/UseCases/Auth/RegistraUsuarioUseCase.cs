@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Fincon.Application.Interfaces;
+using Fincon.Application.Interfaces.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,4 +10,6 @@ namespace Fincon.Application.UseCases.Auth;
 
 public class RegistraUsuarioUseCase
 {
+    private readonly IUsuarioRepository _usuarioRepository;
+    private readonly ISenhaHasher _senhaHasher;
 }

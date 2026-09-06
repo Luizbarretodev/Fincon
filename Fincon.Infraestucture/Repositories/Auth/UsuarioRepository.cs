@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fincon.Infrastructure.Repositories;
+namespace Fincon.Infrastructure.Repositories.Auth;
 
 public class UsuarioRepository : IUsuarioRepository
 {
