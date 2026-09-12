@@ -16,6 +16,17 @@ public class RegistraUsuarioUseCase
 
     public async Task<Usuario> ExecutarAsync(string nome, string email, string senha)
     {
-        var Em = _usuarioRepository.EmailExisteAsync(email);
+        var Em = await _usuarioRepository.EmailExisteAsync(email);
+
+        if (Em)
+        {
+            throw new ArgumentException("Email já existente", nameof(email));
+        }
+
+        var senhaHash = _senhaHasher.GerarHash(senha);
+        var usuario = new Usuario(nome, email, senhaHash);
+
+        await _usuarioRepository.AdicionarAsync(usuario);
+        return usuario;
     }
 }
