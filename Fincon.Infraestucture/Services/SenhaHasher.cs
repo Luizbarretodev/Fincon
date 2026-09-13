@@ -18,9 +18,9 @@ public class SenhaHasher : ISenhaHasher
         return _passwordHasher.HashPassword(null!, senha);
     }
 
-    public bool VerificarHash(string senhaHash, string senhaDigitada)
+    public bool VerificarHash(string senhaHash, string senhaUsuario)
     {
-        var resultado = _passwordHasher.VerifyHashedPassword(null!, senhaHash, senhaDigitada);
+        var resultado = _passwordHasher.VerifyHashedPassword(null!, senhaHash, senhaUsuario);
         return resultado == PasswordVerificationResult.Success;
     }
 }
