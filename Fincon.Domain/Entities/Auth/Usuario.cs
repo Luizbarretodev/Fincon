@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fincon.Domain.Entities;
+namespace Fincon.Domain.Entities.Auth;
 
 public class Usuario
 {

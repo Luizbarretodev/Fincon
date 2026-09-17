@@ -1,4 +1,5 @@
 ﻿using Fincon.Domain.Entities;
+using Fincon.Domain.Entities.Auth;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

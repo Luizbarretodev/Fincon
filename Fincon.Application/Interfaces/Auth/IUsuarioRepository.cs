@@ -1,4 +1,4 @@
-﻿using Fincon.Domain.Entities;
+﻿using Fincon.Domain.Entities.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
 ﻿using Fincon.Application.Interfaces.Auth;
-using Fincon.Domain.Entities;
+using Fincon.Domain.Entities.Auth;
 using Fincon.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System;

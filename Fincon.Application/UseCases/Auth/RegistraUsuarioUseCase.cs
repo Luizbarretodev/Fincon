@@ -1,6 +1,6 @@
 ﻿using Fincon.Application.Interfaces;
 using Fincon.Application.Interfaces.Auth;
-using Fincon.Domain.Entities;
+using Fincon.Domain.Entities.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +16,9 @@ public class RegistraUsuarioUseCase
 
     public async Task<Usuario> ExecutarAsync(string nome, string email, string senha)
     {
-        var Em = await _usuarioRepository.EmailExisteAsync(email);
+        var EmailJaExiste = await _usuarioRepository.EmailExisteAsync(email);
 
-        if (Em)
+        if (EmailJaExiste)
         {
             throw new ArgumentException("Email já existente", nameof(email));
         }

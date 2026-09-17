@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fincon.Application.Interfaces;
-using Fincon.Domain.Entities;
+using Fincon.Domain.Entities.Auth;
 using Microsoft.AspNetCore.Identity;
 
 namespace Fincon.Infrastructure.Services;
