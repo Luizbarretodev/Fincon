@@ -1,4 +1,4 @@
-﻿using Fincon.Api.Models;
+﻿using Fincon.Api.Models.Auth;
 using Fincon.Application.UseCases.Auth;
 using Microsoft.AspNetCore.Mvc;
 
