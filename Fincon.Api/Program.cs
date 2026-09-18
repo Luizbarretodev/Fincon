@@ -4,6 +4,8 @@ using Fincon.Application.UseCases.Categorias;
 using Fincon.Application.UseCases.Contas;
 using Fincon.Application.UseCases.Movimentacoes;
 using Fincon.Application.UseCases.Recorrencias;
+using Fincon.Application.UseCases.Auth;
+using Fincon.Infrastructure.Repositories.Auth;
 using Fincon.Infrastructure.Context;
 using Fincon.Infrastructure.Repositories;
 using Fincon.Infrastructure.Services;
@@ -44,6 +46,7 @@ builder.Services.AddScoped<ExcluirSaidaUseCase>();
 builder.Services.AddScoped<AtualizarRecorrenciaUseCase>();
 builder.Services.AddScoped<ExcluirRecorrenciaUseCase>();
 builder.Services.AddScoped<ISenhaHasher, SenhaHasher>();
+builder.Services.AddScoped<IJwtGenerator, JwtGenerator>();
 
 builder.Services.AddCors(options =>
 {
