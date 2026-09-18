@@ -9,10 +9,12 @@ namespace Fincon.Api.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly RegistraUsuarioUseCase _registraUsuarioUseCase;
+    private readonly LoginUseCase _loginUseCase;
 
-    public AuthController(RegistraUsuarioUseCase registraUsuarioUseCase)
+    public AuthController(RegistraUsuarioUseCase registraUsuarioUseCase, LoginUseCase loginUseCase)
     {
         _registraUsuarioUseCase = registraUsuarioUseCase;
+        _loginUseCase = loginUseCase;
     }
 
     [HttpPost("registrar")]
@@ -22,6 +24,20 @@ public class AuthController : ControllerBase
         {
             var usuario = await _registraUsuarioUseCase.ExecutarAsync(request.Nome, request.Email, request.Senha);
             return Ok(new { usuario.Id, usuario.Nome, usuario.Email });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    {
+        try
+        {
+            var token = await _loginUseCase.ExecutarAsync(request.Email, request.Senha);
+            return Ok(new { token });
         }
         catch (ArgumentException ex)
         {
