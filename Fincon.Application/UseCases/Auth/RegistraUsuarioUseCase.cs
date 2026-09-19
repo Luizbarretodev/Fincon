@@ -13,6 +13,11 @@ public class RegistraUsuarioUseCase
 {
     private readonly IUsuarioRepository _usuarioRepository;
     private readonly ISenhaHasher _senhaHasher;
+    public RegistraUsuarioUseCase(IUsuarioRepository usuarioRepository, ISenhaHasher senhaHasher)
+    {
+        _usuarioRepository = usuarioRepository;
+        _senhaHasher = senhaHasher;
+    }
 
     public async Task<Usuario> ExecutarAsync(string nome, string email, string senha)
     {
