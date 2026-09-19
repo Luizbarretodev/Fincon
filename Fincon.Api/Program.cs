@@ -10,7 +10,10 @@ using Fincon.Infrastructure.Context;
 using Fincon.Infrastructure.Repositories;
 using Fincon.Infrastructure.Repositories.Auth;
 using Fincon.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,6 +76,31 @@ builder.Services.AddCors(options =>
     });
 });
 
+
+//Registra o sistema de autenticação dizendo qual "schema" vai usar, nesse caso, o Bearer Token
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    //aqui ele configura o passo a passo de como validar o schema que configuramos 
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:ChaveSecreta"]!))
+    };
+});
+//registra que o sistema vai precisar de uma autorização para acessar funções
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 app.UseCors("Fincon-web");
@@ -86,6 +114,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//UseAuthentication primeiro, pois primeiro você precisa autenticar e saber quem é
+app.UseAuthentication();
+//Depois você precisa autorizar, ou seja, saber o que pode fazer
 app.UseAuthorization();
 
 app.MapControllers();
