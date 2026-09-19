@@ -1,12 +1,14 @@
 ﻿using Fincon.Api.Models;
 using Fincon.Application.UseCases.Contas;
 using Fincon.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fincon.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ContasController : ControllerBase
 {
     private readonly CriarContaUseCase _criaContaUseCase;

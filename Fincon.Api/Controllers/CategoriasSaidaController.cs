@@ -1,11 +1,13 @@
 ﻿using Fincon.Api.Models;
 using Fincon.Application.UseCases.Categorias;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fincon.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class CategoriasSaidaController : ControllerBase
 {
     private readonly CriarCategoriaSaidaUseCase _criaCategoriaSaidaUseCase;
