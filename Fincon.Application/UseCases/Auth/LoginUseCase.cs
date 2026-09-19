@@ -27,14 +27,14 @@ public class LoginUseCase
 
         if (usuario is null)
         {
-            throw new ArgumentException("Email ou senha inválidos", nameof(email));
+            throw new ArgumentException("Email ou senha inválidos");
         }
 
         var verificaSenha = _senhaHasher.VerificarHash(usuario.SenhaHash, senha);
 
         if (!verificaSenha)
         {
-            throw new ArgumentException("Email ou senha inválidos", nameof(email));
+            throw new ArgumentException("Email ou senha inválidos");
         }
 
         var token = _jwtGenerator.GerarToken(usuario);
