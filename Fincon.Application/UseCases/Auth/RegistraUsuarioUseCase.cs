@@ -28,6 +28,7 @@ public class RegistraUsuarioUseCase
             throw new ArgumentException("Email já existente", nameof(email));
         }
 
+        Usuario.ValidarFormatoDaSenha(senha);
         var senhaHash = _senhaHasher.GerarHash(senha);
         var usuario = new Usuario(nome, email, senhaHash);
 
