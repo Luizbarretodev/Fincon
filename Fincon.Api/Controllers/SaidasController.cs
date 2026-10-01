@@ -1,4 +1,4 @@
-﻿using Fincon.Api.Models;
+﻿using Fincon.Api.Models.Movimentacoes;
 using Fincon.Application.UseCases.Movimentacoes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

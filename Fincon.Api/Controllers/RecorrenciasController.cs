@@ -1,4 +1,4 @@
-﻿using Fincon.Api.Models;
+﻿using Fincon.Api.Models.Recorrencias;
 using Fincon.Application.UseCases.Recorrencias;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,6 @@
 ﻿using Fincon.Domain.Enums;
 
-namespace Fincon.Api.Models;
+namespace Fincon.Api.Models.Recorrencias;
 
 public record CriarRecorrenciaRequest(
     string Descricao,

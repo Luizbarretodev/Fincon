@@ -1,8 +1,8 @@
 ﻿using Fincon.Domain.Enums;
 
-namespace Fincon.Api.Models;
+namespace Fincon.Api.Models.Movimentacoes;
 
-public record CriaSaidaRequest(
+public record AtualizarEntradaRequest(
     DateTime Data,
     decimal Valor,
     string Descricao,

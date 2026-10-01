@@ -1,13 +1,13 @@
 ﻿using Fincon.Domain.Enums;
 
-namespace Fincon.Api.Models;
+namespace Fincon.Api.Models.Movimentacoes;
 
-public record AtualizarSaidaRequest(
+public record CriaEntradaRequest(
     DateTime Data,
     decimal Valor,
     string Descricao,
     StatusTransacao Status,
     Guid ContaId,
-    Guid CategoriaSaidaId,
+    Guid CategoriaEntradaId,
     Guid? RecorrenciaId
 );

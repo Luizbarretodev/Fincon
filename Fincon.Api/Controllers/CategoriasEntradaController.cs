@@ -1,4 +1,4 @@
-﻿using Fincon.Api.Models;
+﻿using Fincon.Api.Models.Categorias;
 using Fincon.Application.UseCases.Categorias;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

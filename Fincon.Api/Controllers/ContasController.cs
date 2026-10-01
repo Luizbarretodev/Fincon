@@ -1,4 +1,4 @@
-﻿using Fincon.Api.Models;
+﻿using Fincon.Api.Models.Contas;
 using Fincon.Application.UseCases.Contas;
 using Fincon.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
