@@ -1,4 +1,5 @@
 ﻿using Fincon.Api.Models.Movimentacoes;
+using Fincon.Application.UseCases.Contas;
 using Fincon.Application.UseCases.Movimentacoes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,16 +11,25 @@ namespace Fincon.Api.Controllers;
 [Authorize]
 public class EntradasController : ControllerBase
 {
+    private readonly ListarEntradasUseCase _listarEntradasUseCase;
     private readonly CriarEntradaUseCase _criaEntradaUseCase;
     private readonly AtualizarEntradaUseCase _atualizarEntradaUseCase;
     private readonly ExcluirEntradaUseCase _excluirEntradaUseCase;
 
-    public EntradasController(CriarEntradaUseCase criaEntradaUseCase, AtualizarEntradaUseCase atualizarEntradaUseCase,
-        ExcluirEntradaUseCase excluirEntradaUseCase)
+    public EntradasController(ListarEntradasUseCase listarEntradasUseCase, CriarEntradaUseCase criaEntradaUseCase,
+        AtualizarEntradaUseCase atualizarEntradaUseCase, ExcluirEntradaUseCase excluirEntradaUseCase)
     {
+        _listarEntradasUseCase = listarEntradasUseCase;
         _criaEntradaUseCase = criaEntradaUseCase;
         _atualizarEntradaUseCase = atualizarEntradaUseCase;
         _excluirEntradaUseCase = excluirEntradaUseCase;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var entradas = await _listarEntradasUseCase.ExecutarAsync();
+        return Ok(entradas.Select(e => new { e.Id, e.Descricao }));
     }
 
     [HttpPost]
@@ -60,5 +70,12 @@ public class EntradasController : ControllerBase
         {
             return BadRequest(ex.Message);
         }
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        await _excluirEntradaUseCase.ExecutarAsync(id);
+        return NoContent();
     }
 }

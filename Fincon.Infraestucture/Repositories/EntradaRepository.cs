@@ -1,6 +1,7 @@
 ﻿using Fincon.Application.Interfaces;
 using Fincon.Domain.Entities;
 using Fincon.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ public class EntradaRepository : IEntradaRepository
         _context = context;
     }
 
+    public async Task<List<Entrada>> ListarAsync()
+    {
+        return await _context.Entradas.ToListAsync();
+    }
     public async Task AdicionarAsync(Entrada entrada)
     {
         _context.Add(entrada);

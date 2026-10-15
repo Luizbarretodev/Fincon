@@ -1,5 +1,6 @@
 ﻿using Fincon.Api.Models.Movimentacoes;
 using Fincon.Application.UseCases.Movimentacoes;
+using Fincon.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,16 +11,25 @@ namespace Fincon.Api.Controllers;
 [Authorize]
 public class SaidasController : ControllerBase
 {
+    private readonly ListarSaidasUseCase _listarSaidasUseCase;
     private readonly CriarSaidaUseCase _criaSaidaUseCase;
     private readonly AtualizarSaidaUseCase _atualizarSaidaUseCase;
     private readonly ExcluirSaidaUseCase _excluirSaidaUseCase;
 
-    public SaidasController(CriarSaidaUseCase criaSaidaUseCase, AtualizarSaidaUseCase atualizarSaidaUseCase, 
-                            ExcluirSaidaUseCase excluirSaidaUseCase)
+    public SaidasController(ListarSaidasUseCase listarSaidasUseCase, CriarSaidaUseCase criaSaidaUseCase,
+        AtualizarSaidaUseCase atualizarSaidaUseCase, ExcluirSaidaUseCase excluirSaidaUseCase)
     {
+        _listarSaidasUseCase = listarSaidasUseCase;
         _criaSaidaUseCase = criaSaidaUseCase;
         _atualizarSaidaUseCase = atualizarSaidaUseCase;
         _excluirSaidaUseCase = excluirSaidaUseCase;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var saidas = await _listarSaidasUseCase.ExecutarAsync();
+        return Ok(saidas.Select(s => new { s.Id, s.Descricao }));
     }
 
     [HttpPost]

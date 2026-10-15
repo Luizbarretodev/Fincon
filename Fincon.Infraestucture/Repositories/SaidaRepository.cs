@@ -1,6 +1,7 @@
 ﻿using Fincon.Application.Interfaces;
 using Fincon.Domain.Entities;
 using Fincon.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ public class SaidaRepository : ISaidaRepository
         _context = context;
     }
 
+    public async Task<List<Saida>> ListarAsync()
+    {
+        return await _context.Saidas.ToListAsync();
+    }
     public async Task AdicionarAsync(Saida saida)
     {
         _context.Add(saida);

@@ -73,9 +73,15 @@ builder.Services.AddScoped<AtualizarCategoriaSaidaUseCase>();
 builder.Services.AddScoped<ExcluirCategoriaSaidaUseCase>();
 //Entrada
 builder.Services.AddScoped<IEntradaRepository, EntradaRepository>();
-builder.Services.AddScoped<AtualizarSaidaUseCase>();
+builder.Services.AddScoped<ListarEntradasUseCase>();
+builder.Services.AddScoped<CriarEntradaUseCase>();
+builder.Services.AddScoped<AtualizarEntradaUseCase>();
+builder.Services.AddScoped<ExcluirEntradaUseCase>();
 //Saida
 builder.Services.AddScoped<ISaidaRepository, SaidaRepository>();
+builder.Services.AddScoped<ListarSaidasUseCase>();
+builder.Services.AddScoped<CriarSaidaUseCase>();
+builder.Services.AddScoped<AtualizarSaidaUseCase>();
 builder.Services.AddScoped<ExcluirSaidaUseCase>();
 //Recorrencia
 builder.Services.AddScoped<IRecorrenciaRepository, RecorrenciaRepository>();
