@@ -29,7 +29,16 @@ public class EntradasController : ControllerBase
     public async Task<IActionResult> Get()
     {
         var entradas = await _listarEntradasUseCase.ExecutarAsync();
-        return Ok(entradas.Select(e => new { e.Id, e.Descricao }));
+        return Ok(entradas.Select(e => new
+        {
+            e.Id,
+            e.Data,
+            e.Valor,
+            e.Descricao,
+            e.Status,
+            e.ContaId,
+            e.CategoriaEntradaId
+        }));
     }
 
     [HttpPost]
@@ -46,6 +55,7 @@ public class EntradasController : ControllerBase
             entrada.Descricao,
             entrada.Status,
             entrada.ContaId,
+            entrada.RecorrenciaId,
             entrada.CategoriaEntradaId
         });
     }

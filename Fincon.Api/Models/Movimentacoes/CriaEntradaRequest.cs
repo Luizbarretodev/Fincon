@@ -8,6 +8,6 @@ public record CriaEntradaRequest(
     string Descricao,
     StatusTransacao Status,
     Guid ContaId,
-    Guid CategoriaEntradaId,
-    Guid? RecorrenciaId
+    Guid? RecorrenciaId,
+    Guid CategoriaEntradaId
 );
