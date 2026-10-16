@@ -15,10 +15,13 @@ public class CategoriasSaidaController : ControllerBase
     private readonly AtualizarCategoriaSaidaUseCase _atualizarCategoriaSaidaUseCase;
     private readonly ExcluirCategoriaSaidaUseCase _excluirCategoriaSaidaUseCase;
 
-    public CategoriasSaidaController(CriarCategoriaSaidaUseCase criaSaidaUseCase, ListarCategoriasSaidaUseCase listaCategoriasSaidaUseCase)
+    public CategoriasSaidaController(CriarCategoriaSaidaUseCase criaSaidaUseCase, ListarCategoriasSaidaUseCase listaCategoriasSaidaUseCase, 
+                  AtualizarCategoriaSaidaUseCase atualizarCategoriaSaidaUseCase, ExcluirCategoriaSaidaUseCase excluirCategoriaSaidaUseCase)
     {
         _criaCategoriaSaidaUseCase = criaSaidaUseCase;
         _listaCategoriasSaidaUseCase = listaCategoriasSaidaUseCase;
+        _atualizarCategoriaSaidaUseCase = atualizarCategoriaSaidaUseCase;
+        _excluirCategoriaSaidaUseCase = excluirCategoriaSaidaUseCase;
     }
 
     [HttpGet]
